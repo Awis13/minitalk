@@ -2,7 +2,7 @@ NAME_CLIENT=client
 NAME_SERVER=server
 
 CC=gcc
-CFLAGS=-Wall -Wextra -Werror -pedantic -std=c99
+CFLAGS=-Wall -Wextra -Werror -std=c99
 
 SRC_CLIENT=src/client.c
 SRC_SERVER=src/server.c
@@ -13,7 +13,7 @@ LIBFT=$(LIBFT_DIR)/libft.a
 FT_PRINTF_DIR=src/ft_printf
 FT_PRINTF=$(FT_PRINTF_DIR)/libftprintf.a
 
-INCLUDES=-I includes -I $(LIBFT_DIR) -I $(FT_PRINTF_DIR)
+INCLUDES=-I include -I $(LIBFT_DIR) -I $(FT_PRINTF_DIR) 
 
 all: $(NAME_CLIENT) $(NAME_SERVER)
 
