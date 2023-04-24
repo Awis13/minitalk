@@ -1,0 +1,35 @@
+# Compiled Object files, Static and Shared libraries (XCode, gcc, clang, g++, etc)
+*.o
+*.a
+*.out
+
+# Folders
+bin/
+lib/
+obj/
+.DS_Store
+
+# Executables
+a.out
+*.exe
+
+# Temporary files
+*.swp
+*~
+.\#*
+
+# macOS files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Vim files
+*.swp
+*.swo
+*.swn
+
+# Project specific files to ignore
+# Makefile
+# *.log
+# *.dSYM/
+# test_output/
