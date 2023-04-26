@@ -2,7 +2,7 @@ NAME_CLIENT=client
 NAME_SERVER=server
 
 CC=gcc
-CFLAGS=-Wall -Wextra -Werror -std=c99
+# CFLAGS=-Wall -Wextra -Werror -std=c99
 
 SRC_CLIENT=src/client.c
 SRC_SERVER=src/server.c
