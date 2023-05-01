@@ -15,8 +15,17 @@
 #include "include/libft.h"
 #include <signal.h>
 
-int bits[8];
-int bit_index;
+#include <stdio.h>
+#include "include/ft_printf.h"
+#include "include/libft.h"
+#include <signal.h>
+
+typedef struct {
+    int bits[8];
+    int bit_index;
+} GlobalState;
+
+GlobalState state = {.bit_index = 0};
 
 char bits_to_char(int bits[8]);
 
@@ -24,23 +33,23 @@ void signal_handler(int sig)
 {
 	if (sig == SIGUSR1)
 	{
-		bits[bit_index] = 1;
+		state.bits[state.bit_index] = 1;
 	}
 	else if (sig == SIGUSR2)
 	{
-		bits[bit_index] = 0;
+		state.bits[state.bit_index] = 0;
 	}
 	else
 	{
 		ft_printf("Error");
 	}
 
-	bit_index++;
+	state.bit_index++;
 
-	if (bit_index >= 8)
+	if (state.bit_index >= 8)
 	{
-		bit_index = 0;
-		char c = bits_to_char(bits);
+		state.bit_index = 0;
+		char c = bits_to_char(state.bits);
 		ft_printf("%c", c);
 	}
 }
@@ -76,4 +85,3 @@ int main(void)
 	}
 	return 0;
 }
-

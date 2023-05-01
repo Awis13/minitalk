@@ -64,7 +64,7 @@ void send_string(pid_t server_pid, char *str)
 		while (j < 8)
 		{
 			send_bit(server_pid, bits[j]);
-			usleep(1000);
+			usleep(100);
 			j++;
 		}
 		i++;
