@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include "include/ft_printf.h"
 #include "include/libft.h"
+#include <signal.h>
 
 int bits[8];
 int bit_index;
