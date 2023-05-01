@@ -10,13 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <signal.h>
 #include "minitalk.h"
-#include "include/ft_printf.h"
-#include "include/libft.h"
 
 int char_to_bit(char c, int bits[8])
 {

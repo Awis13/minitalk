@@ -10,54 +10,41 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "include/ft_printf.h"
-#include "include/libft.h"
-#include <signal.h>
+#include "minitalk.h"
 
-typedef struct {
-    int bits[8];
-    int bit_index;
-} GlobalState;
+typedef struct s_global_state{
+	int	bits[8];
+	int	bit_index;
+}	t_GlobalState;
 
-GlobalState state = {.bit_index = 0};
+t_GlobalState	g_state = {.bit_index = 0};
 
-char bits_to_char(int bits[8]);
-
-void signal_handler(int sig)
+void	signal_handler(int sig)
 {
+	char	c;
+
 	if (sig == SIGUSR1)
-	{
-		state.bits[state.bit_index] = 1;
-	}
+		g_state.bits[g_state.bit_index] = 1;
 	else if (sig == SIGUSR2)
-	{
-		state.bits[state.bit_index] = 0;
-	}
+		g_state.bits[g_state.bit_index] = 0;
 	else
-	{
 		ft_printf("Error");
-	}
-
-	state.bit_index++;
-
-	if (state.bit_index >= 8)
+	g_state.bit_index++;
+	if (g_state.bit_index >= 8)
 	{
-		state.bit_index = 0;
-		char c = bits_to_char(state.bits);
+		g_state.bit_index = 0;
+		c = bits_to_char(g_state.bits);
 		ft_printf("%c", c);
 	}
 }
 
-
-char bits_to_char(int bits[8])
+char	bits_to_char(int bits[8])
 {
-	char c;
-	int i;
+	char	c;
+	int		i;
 
 	c = 0;
 	i = 0;
-
 	while (i < 8)
 	{
 		c += bits[i] << i;
@@ -66,17 +53,15 @@ char bits_to_char(int bits[8])
 	return (c);
 }
 
-int main(void)
+int	main(void)
 {
+	pid_t	pid;
 
-	pid_t pid;
 	pid = getpid();
 	ft_printf("PID: %d\n", pid);
 	signal(SIGUSR1, signal_handler);
 	signal(SIGUSR2, signal_handler);
 	while (42)
-	{
 		pause();
-	}
-	return 0;
+	return (0);
 }
