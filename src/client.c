@@ -12,9 +12,9 @@
 
 #include "minitalk.h"
 
-int char_to_bit(char c, int bits[8])
+int	char_to_bit(char c, int bits[8])
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < 8)
@@ -25,7 +25,7 @@ int char_to_bit(char c, int bits[8])
 	return (0);
 }
 
-void send_bit(pid_t server_pid, int bit)
+void	send_bit(pid_t server_pid, int bit)
 {
 	if (bit == 1)
 	{
@@ -45,16 +45,17 @@ void send_bit(pid_t server_pid, int bit)
 	}
 }
 
-void send_string(pid_t server_pid, char *str)
+void	send_string(pid_t server_pid, char *str)
 {
-	int i;
-	int bits[8];
+	int	i;
+	int	bits[8];
+	int	j;
 
 	i = 0;
 	while (str[i])
 	{
 		char_to_bit(str[i], bits);
-		int j = 0;
+		j = 0;
 		while (j < 8)
 		{
 			send_bit(server_pid, bits[j]);
@@ -65,26 +66,17 @@ void send_string(pid_t server_pid, char *str)
 	}
 }
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-	int bits[8];
-	char test_char = argv[2][0];
-    if (argc != 3)
-    {
-        printf("Usage: %s <server_pid> <string>\n", argv[0]);
-        return 1;
-    }
+	pid_t	server_pid;
+	int		bits[8];
 
-    pid_t server_pid = atoi(argv[1]);
+	if (argc != 3)
+	{
+		printf("Usage: %s <server_pid> <string>\n", argv[0]);
+		return (1);
+	}
+	server_pid = atoi(argv[1]);
 	send_string(server_pid, argv[2]);
-	
-
-    // if (kill(server_pid, SIGUSR1) == -1)
-    // {
-    //     perror("Error sending signal");
-    //     return 2;
-    // }
-
-    // printf("Signal sent successfully\n");
-    return 0;
+	return (0);
 }
