@@ -2,7 +2,7 @@
 
 ![](minitalk.png)
 
-Welcome to Minitalk, a project by `nipostni`. Minitalk is a simple yet powerful communication system, enabling message exchange between processes using UNIX signals. The goal of this project is to create a reliable and efficient communication channel. As an added bonus, it's incredibly fun! 🎉
+Welcome to Minitalk. Minitalk is a simple yet powerful communication system, enabling message exchange between processes using UNIX signals. The goal of this project is to create a reliable and efficient communication channel. As an added bonus, it's incredibly fun! 🎉
 
 ## How it works 🕹️
 
