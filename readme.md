@@ -1,54 +1,36 @@
 # Minitalk 💬
 
-## What's Cooking? 🧑‍🍳
-
 ![](minitalk.png)
-Welcome to Minitalk! 🎉 It's a nifty, cool-as-cucumber server-client setup that speaks the language of UNIX signals (SIGUSR1 and SIGUSR2). It's the brainchild of the programming adventures at the 42 School! 🏫
 
-The essence of Minitalk? The client sends a string over to the server, and the server just prints it out, like the good buddy it is! 📝 And the most fascinating part? The string gets converted into binary and is sent bit by bit!
+Welcome to Minitalk, a project by `nipostni`. Minitalk is a simple yet powerful communication system, enabling message exchange between processes using UNIX signals. The goal of this project is to create a reliable and efficient communication channel. As an added bonus, it's incredibly fun! 🎉
 
-Our two superheroes in this saga are:
+## How it works 🕹️
 
-- `client.c` 📤: The client, always ready to send out the message.
-- `server.c` 📥: The server, patiently waiting to receive and decode the message.
+Minitalk uses two custom programs written in C - a server and a client. The server is capable of receiving and interpreting signals sent from the client. Each character sent by the client is converted to a binary format, then sent bit by bit to the server using UNIX signals `SIGUSR1` and `SIGUSR2`. After receiving a full byte (8 bits), the server converts these bits back to a character and prints it. Voilà! We have communication! 📡
 
-## The Magical Process ✨
+## How to use it 🚀
 
-### Client, the Messenger 📤
-
-The client needs two things to get started: the PID (Process ID) of the server and a string. Then, it's game time! 🚀 The client converts each character of the string into binary, bit by bit. These bits are then sent as separate signals to the server. Here's a fun fact: SIGUSR1 is the messenger for bit value '1', and SIGUSR2 carries '0'.
-
-### Server, the Receiver 📥
-
-The server has a simple life. It starts its day by announcing its PID to the console. After that, it's all about waiting for the signals, like a faithful dog waits for its owner! 🐕 When a signal comes in, it joins the current bit sequence. And once we have a full byte (that's 8 bits), it's transformed back into a character and printed to the console. Voila! 🎁
-
-## Let's Get Rolling 🎲
-
-1. Fire up the terminal and compile the server and client with a simple `make` command:
-
-```bash
+1. Clone the repository to your local machine.
+```
+git clone https://github.com/nipostni/minitalk.git
+```
+2. Compile both server and client using the Makefile provided.
+```
 make
 ```
-2. Time to wake up the server:
-
-```bash
+3. First, run the server program. It will print out its PID.
+```
 ./server
 ```
-
-The server will greet you with its PID. Remember it, you'll need it!
-
-3. Get the client into the game:
-
-```bash
+4. Open a new terminal, then run the client program with the server's PID and the string you want to send as arguments.
+```
 ./client <server_pid> <string>
 ```
 
-Heads Up! 🎈
+Voilà! The server will receive and print your string one character at a time. Cool, right? 🎈
 
-This project is like a fascinating sandbox where we play around with UNIX signals and interprocess communication. It's not built for big-league matches like large data transfers, but hey, it's super fun and insightful! 😁
+## Contact 📫
 
-Prerequisites 📋
+If you have any questions, feel free to contact me at awis@me.com. Happy coding! 🍻👩‍💻👨‍💻
 
-A brave GCC compiler (or equivalent)
-A Unix-like operating system to host the party
-A basic knack for C programming and Unix signals. But don't worry, you've got this!
+**Please note: This readme was last updated on June 21, 2023. Make sure to pull the latest version of the project to get all the newest features!**
