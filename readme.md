@@ -29,8 +29,3 @@ make
 
 Voilà! The server will receive and print your string one character at a time. Cool, right? 🎈
 
-## Contact 📫
-
-If you have any questions, feel free to contact me at awis@me.com. Happy coding! 🍻👩‍💻👨‍💻
-
-**Please note: This readme was last updated on June 21, 2023. Make sure to pull the latest version of the project to get all the newest features!**
