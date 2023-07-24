@@ -12,7 +12,7 @@ Minitalk uses two custom programs written in C - a server and a client. The serv
 
 1. Clone the repository to your local machine.
 ```
-git clone https://github.com/nipostni/minitalk.git
+git clone https://github.com/Awis13/minitalk.git
 ```
 2. Compile both server and client using the Makefile provided.
 ```
